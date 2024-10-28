@@ -1,6 +1,5 @@
 
 const { ethers } = require("hardhat")
-
 async function main () {
   const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage")
   console.log("Deploying contract...")
@@ -11,6 +10,12 @@ async function main () {
     simpleStorage.target,
   )
 }
+
+async function verify(contractAddress, args) {
+  
+}
+
+
 
 main()
   .then(() => process.exit(0))
