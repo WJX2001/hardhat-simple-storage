@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox")
 require("@nomicfoundation/hardhat-verify");
 require("@chainlink/env-enc").config()
+require("./tasks")
 /** @type import('hardhat/config').HardhatUserConfig */
 
 const SOPELIA_RPC_URL = process.env.SEPOLIA_RPC_URL

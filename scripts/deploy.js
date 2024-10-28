@@ -27,8 +27,6 @@ async function main () {
   await transactionResponse.wait(1)
   const updatedValue = await simpleStorage.retrieve()
   console.log(`updated value is ${updatedValue}`)
-  
-
 }
 
 async function verify (contractAddress, args) {
@@ -45,7 +43,6 @@ async function verify (contractAddress, args) {
       console.log(e)
     }
   }
-
 }
 
 
