@@ -16,6 +16,7 @@ async function main () {
     // 需要等待几个区块
     console.log('waiting for 5 confirmations...')
     await fundMe.deploymentTransaction().wait(5)
+    await verify(simpleStorage.target)
   }
 
   const currentValue = await simpleStorage.retrieve()
