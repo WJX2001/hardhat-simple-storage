@@ -17,10 +17,19 @@
     "ethers": "^6.4.0",
     "hardhat": "^2.22.15",
     "hardhat-gas-reporter": "^2.2.1",
+    "solhint": "^5.0.3",
     "solidity-coverage": "^0.8.13",
     "typechain": "^8.3.0"
   },
   "dependencies": {
     "@chainlink/env-enc": "^1.0.5"
+  },
+  "scripts": {
+    "test": "hardhat test",
+    "test:staging": "hardhat test --network sepolia",
+    "lint": "solhint 'contracts/**/*.sol'",
+    "lint:fix": "solhint 'contracts/**/*.sol' --fix",
+    "format": "prettier --write .",
+    "coverage": "hardhat coverage"
   }
 }
