@@ -11,11 +11,15 @@ module.exports = {
   solidity: "0.8.27",
   defaultNetwork: "hardhat",
   networks: {
-    sepolia: {
-      url: "https://sepolia.infura.io/v3/" + SOPELIA_RPC_URL,
-      accounts: [`${PRIVATE_KEY}`],
-      chainId: 11155111
-    },
+    // sepolia: {
+    //   url: "https://sepolia.infura.io/v3/" + SOPELIA_RPC_URL,
+    //   accounts: [`${PRIVATE_KEY}`],
+    //   chainId: 11155111
+    // },
+    localhost: {
+      url: "http://127.0.0.1:8545/",
+      chainId: 31337
+    }
   },
   etherscan: {
     apiKey: {
