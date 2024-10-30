@@ -20,7 +20,7 @@ module.exports = {
     sepolia: {
       url: "https://sepolia.infura.io/v3/" + SOPELIA_RPC_URL,
       accounts: [`${PRIVATE_KEY}`],
-      chainId: 11155111
+      chainId: 11155111,
     },
     localhost: {
       url: LOCALHOST_URL,

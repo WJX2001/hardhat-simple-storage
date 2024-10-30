@@ -1,6 +1,8 @@
 
 const { network } = require("hardhat")
 const { devlopmentChains, networkConfig, LOCK_TIME, CONFIRMATIONS } = require("../helper-hardhat-config")
+const { verify } = require("../utils/verify")
+
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments
   const { firstAccount } = await getNamedAccounts()
@@ -14,17 +16,20 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     dataFeedAddr = networkConfig[network.config.chainId].ethUsdDataFeed
   }
 
-
-
   // well what happens when we want to change chains?
   // when going for localhost or hardhat network we want to use a mock
+  const args = [dataFeedAddr]
   const fundMe = await deploy("FundMe", {
     from: firstAccount,
-    args: [
-      // put price fedd address
-      dataFeedAddr
-    ],
+    args,
     log: true,
   })
+
+  if (!devlopmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+    // 进行验证
+    await verify(fundMe.address, args)
+  }
+
+
 }
 module.exports.tags = ["all", "fundme"]
